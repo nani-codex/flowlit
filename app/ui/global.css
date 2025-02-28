@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --white: #faf9f6;
+  --black: #171717;
+  --black-2: #0a0a0a;
+  --font-primary: var(--font-lato);
+  --font-secondary: var(--font-noto-sans);
+}
+
+body {
+  color: var(--white);
+  background: var(--black-2);
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 400;
+}
+
+p {
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+a {
+  position: relative;
+  width: max-content;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  background-color: #faf9f6;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Mobile Menu (hidden by default) */
+.mobile-menu {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 16px;
+  position: absolute;
+  top: 72px; /* Adjust this to the height of your navbar */
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+}
+
+/* Mobile Menu Open */
+.mobile-menu.open {
+  display: block;
+  transform: translateY(0);
+}
+
+/* Add smooth transition to mobile menu */
+@media screen and (max-width: 767px) {
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 600;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: #faf9f6;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+  }
+
+  .mobile-menu a {
+    text-align: center;
+    padding: 8px 16px;
+    transition: color 0.3s ease;
+  }
+}
